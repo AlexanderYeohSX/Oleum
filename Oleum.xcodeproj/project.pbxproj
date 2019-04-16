@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60107802224FA23000F3FE87 /* TabBarViewController.swift */; };
+		60107805224FA9F300F3FE87 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60107804224FA9F300F3FE87 /* HistoryViewController.swift */; };
+		602AD7052244BB8600E37D76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */; };
+		605FEFCD223804310050034E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 605FEFCC223804310050034E /* GoogleService-Info.plist */; };
+		605FEFD222380AE20050034E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605FEFD122380AE20050034E /* Constants.swift */; };
+		6073C65E222D282E00EEC4B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073C65D222D282E00EEC4B2 /* AppDelegate.swift */; };
+		6073C660222D282E00EEC4B2 /* LevelSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073C65F222D282E00EEC4B2 /* LevelSensorViewController.swift */; };
+		6073C663222D282E00EEC4B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6073C661222D282E00EEC4B2 /* Main.storyboard */; };
+		6073C665222D282F00EEC4B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6073C664222D282F00EEC4B2 /* Assets.xcassets */; };
+		60D70892223643450057F010 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D70891223643450057F010 /* LoginViewController.swift */; };
+		60EC4CEC2236C32600367982 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4CEB2236C32600367982 /* LocationViewController.swift */; };
+		60EC4CF02237D01A00367982 /* LevelSensorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4CEF2237D01A00367982 /* LevelSensorStore.swift */; };
+		60EC4CF22237D02600367982 /* LevelSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4CF12237D02600367982 /* LevelSensor.swift */; };
+		D64633AA37F01559D648A01C /* Pods_Oleum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580465507EA537A77337BCB4 /* Pods_Oleum.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		25F715C90037D758D1A24454 /* Pods-Oleum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oleum.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oleum/Pods-Oleum.release.xcconfig"; sourceTree = "<group>"; };
+		580465507EA537A77337BCB4 /* Pods_Oleum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oleum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60107801224F68AB00F3FE87 /* SegoeUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUI.ttf; sourceTree = "<group>"; };
+		60107802224FA23000F3FE87 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		60107804224FA9F300F3FE87 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		605FEFCC223804310050034E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		605FEFD122380AE20050034E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6073C65A222D282E00EEC4B2 /* Oleum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oleum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6073C65D222D282E00EEC4B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6073C65F222D282E00EEC4B2 /* LevelSensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSensorViewController.swift; sourceTree = "<group>"; };
+		6073C662222D282E00EEC4B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6073C664222D282F00EEC4B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6073C669222D282F00EEC4B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60D70891223643450057F010 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		60EC4CEB2236C32600367982 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		60EC4CEF2237D01A00367982 /* LevelSensorStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSensorStore.swift; sourceTree = "<group>"; };
+		60EC4CF12237D02600367982 /* LevelSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSensor.swift; sourceTree = "<group>"; };
+		EBE26132C163F48905CA835D /* Pods-Oleum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oleum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oleum/Pods-Oleum.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6073C657222D282E00EEC4B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64633AA37F01559D648A01C /* Pods_Oleum.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		60107800224F689B00F3FE87 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				60107801224F68AB00F3FE87 /* SegoeUI.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6073C651222D282E00EEC4B2 = {
+			isa = PBXGroup;
+			children = (
+				6073C65C222D282E00EEC4B2 /* Oleum */,
+				6073C65B222D282E00EEC4B2 /* Products */,
+				A6DE7ADC4229F98BA3257A43 /* Pods */,
+				9942D2E649BAA71CF19015CB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6073C65B222D282E00EEC4B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6073C65A222D282E00EEC4B2 /* Oleum.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6073C65C222D282E00EEC4B2 /* Oleum */ = {
+			isa = PBXGroup;
+			children = (
+				60107800224F689B00F3FE87 /* Fonts */,
+				60EC4CEE2237CFEE00367982 /* Model */,
+				6073C65D222D282E00EEC4B2 /* AppDelegate.swift */,
+				60EC4CED2237CFDE00367982 /* Controller */,
+				6073C661222D282E00EEC4B2 /* Main.storyboard */,
+				6073C664222D282F00EEC4B2 /* Assets.xcassets */,
+				6073C669222D282F00EEC4B2 /* Info.plist */,
+				602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */,
+				605FEFCC223804310050034E /* GoogleService-Info.plist */,
+				605FEFD122380AE20050034E /* Constants.swift */,
+			);
+			path = Oleum;
+			sourceTree = "<group>";
+		};
+		60EC4CED2237CFDE00367982 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6073C65F222D282E00EEC4B2 /* LevelSensorViewController.swift */,
+				60107804224FA9F300F3FE87 /* HistoryViewController.swift */,
+				60EC4CEB2236C32600367982 /* LocationViewController.swift */,
+				60D70891223643450057F010 /* LoginViewController.swift */,
+				60107802224FA23000F3FE87 /* TabBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		60EC4CEE2237CFEE00367982 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60EC4CEF2237D01A00367982 /* LevelSensorStore.swift */,
+				60EC4CF12237D02600367982 /* LevelSensor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9942D2E649BAA71CF19015CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				580465507EA537A77337BCB4 /* Pods_Oleum.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6DE7ADC4229F98BA3257A43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBE26132C163F48905CA835D /* Pods-Oleum.debug.xcconfig */,
+				25F715C90037D758D1A24454 /* Pods-Oleum.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6073C659222D282E00EEC4B2 /* Oleum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6073C66C222D282F00EEC4B2 /* Build configuration list for PBXNativeTarget "Oleum" */;
+			buildPhases = (
+				1F2094EDD85B1A5672727245 /* [CP] Check Pods Manifest.lock */,
+				6073C656222D282E00EEC4B2 /* Sources */,
+				6073C657222D282E00EEC4B2 /* Frameworks */,
+				6073C658222D282E00EEC4B2 /* Resources */,
+				EECD4CE8FBEA77DE11FEEEFF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Oleum;
+			productName = OilOil;
+			productReference = 6073C65A222D282E00EEC4B2 /* Oleum.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6073C652222D282E00EEC4B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Kean Wei Wong";
+				TargetAttributes = {
+					6073C659222D282E00EEC4B2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 6073C655222D282E00EEC4B2 /* Build configuration list for PBXProject "Oleum" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6073C651222D282E00EEC4B2;
+			productRefGroup = 6073C65B222D282E00EEC4B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6073C659222D282E00EEC4B2 /* Oleum */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6073C658222D282E00EEC4B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605FEFCD223804310050034E /* GoogleService-Info.plist in Resources */,
+				602AD7052244BB8600E37D76 /* LaunchScreen.storyboard in Resources */,
+				6073C665222D282F00EEC4B2 /* Assets.xcassets in Resources */,
+				6073C663222D282E00EEC4B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F2094EDD85B1A5672727245 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Oleum-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EECD4CE8FBEA77DE11FEEEFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6073C656222D282E00EEC4B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */,
+				60D70892223643450057F010 /* LoginViewController.swift in Sources */,
+				6073C660222D282E00EEC4B2 /* LevelSensorViewController.swift in Sources */,
+				6073C65E222D282E00EEC4B2 /* AppDelegate.swift in Sources */,
+				60EC4CEC2236C32600367982 /* LocationViewController.swift in Sources */,
+				605FEFD222380AE20050034E /* Constants.swift in Sources */,
+				60107805224FA9F300F3FE87 /* HistoryViewController.swift in Sources */,
+				60EC4CF22237D02600367982 /* LevelSensor.swift in Sources */,
+				60EC4CF02237D01A00367982 /* LevelSensorStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6073C661222D282E00EEC4B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6073C662222D282E00EEC4B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6073C66A222D282F00EEC4B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6073C66B222D282F00EEC4B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6073C66D222D282F00EEC4B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBE26132C163F48905CA835D /* Pods-Oleum.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 794FA78YH4;
+				INFOPLIST_FILE = Oleum/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oleum.Oleum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6073C66E222D282F00EEC4B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25F715C90037D758D1A24454 /* Pods-Oleum.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 794FA78YH4;
+				INFOPLIST_FILE = Oleum/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oleum.Oleum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6073C655222D282E00EEC4B2 /* Build configuration list for PBXProject "Oleum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6073C66A222D282F00EEC4B2 /* Debug */,
+				6073C66B222D282F00EEC4B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6073C66C222D282F00EEC4B2 /* Build configuration list for PBXNativeTarget "Oleum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6073C66D222D282F00EEC4B2 /* Debug */,
+				6073C66E222D282F00EEC4B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6073C652222D282E00EEC4B2 /* Project object */;
+}
