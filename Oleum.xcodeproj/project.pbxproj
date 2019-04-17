@@ -20,6 +20,7 @@
 		60EC4CEC2236C32600367982 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4CEB2236C32600367982 /* LocationViewController.swift */; };
 		60EC4CF02237D01A00367982 /* LevelSensorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4CEF2237D01A00367982 /* LevelSensorStore.swift */; };
 		60EC4CF22237D02600367982 /* LevelSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4CF12237D02600367982 /* LevelSensor.swift */; };
+		60FA317C226622D100CED7C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FA317B226622D100CED7C5 /* SettingsViewController.swift */; };
 		D64633AA37F01559D648A01C /* Pods_Oleum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580465507EA537A77337BCB4 /* Pods_Oleum.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		60EC4CEB2236C32600367982 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		60EC4CEF2237D01A00367982 /* LevelSensorStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSensorStore.swift; sourceTree = "<group>"; };
 		60EC4CF12237D02600367982 /* LevelSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSensor.swift; sourceTree = "<group>"; };
+		60FA317B226622D100CED7C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EBE26132C163F48905CA835D /* Pods-Oleum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oleum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oleum/Pods-Oleum.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 			children = (
 				6073C65F222D282E00EEC4B2 /* LevelSensorViewController.swift */,
 				60107804224FA9F300F3FE87 /* HistoryViewController.swift */,
+				60FA317B226622D100CED7C5 /* SettingsViewController.swift */,
 				60EC4CEB2236C32600367982 /* LocationViewController.swift */,
 				60D70891223643450057F010 /* LoginViewController.swift */,
 				60107802224FA23000F3FE87 /* TabBarViewController.swift */,
@@ -276,6 +279,7 @@
 				60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */,
 				60D70892223643450057F010 /* LoginViewController.swift in Sources */,
 				6073C660222D282E00EEC4B2 /* LevelSensorViewController.swift in Sources */,
+				60FA317C226622D100CED7C5 /* SettingsViewController.swift in Sources */,
 				6073C65E222D282E00EEC4B2 /* AppDelegate.swift in Sources */,
 				60EC4CEC2236C32600367982 /* LocationViewController.swift in Sources */,
 				605FEFD222380AE20050034E /* Constants.swift in Sources */,

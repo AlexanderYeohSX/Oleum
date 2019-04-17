@@ -20,9 +20,9 @@ class HistoryViewController: UIViewController {
         
         historyTableView.dataSource = self
         historyTableView.delegate = self
-        historyTableView.layer.borderWidth = 1.0
-        historyTableView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        historyTableView.layer.cornerRadius = 10
+        historyTableView.layer.borderWidth = ViewConstants.lineWidth
+        historyTableView.layer.borderColor = ViewConstants.lineColor
+        historyTableView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
     }
     
 

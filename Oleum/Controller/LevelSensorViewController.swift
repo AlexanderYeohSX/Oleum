@@ -36,8 +36,38 @@ class LevelSensorViewController: UIViewController {
         let backgroundView = cell.contentView.subviews[0]
         let levelLabel = cell.contentView.subviews[1] as! UILabel
         let collectedButton = backgroundView.subviews.last! as! UIButton
+        let wifiImageView = backgroundView.subviews[1] as! UIImageView
+        let batteryImageView = backgroundView.subviews[0] as! UIImageView
         
-     
+        if levelSensor.isConnected {
+            wifiImageView.image = UIImage(named: "Wifi")
+        } else {
+            wifiImageView.image = UIImage(named: "Wifi_Off")
+        }
+        
+        if levelSensor.isFull {
+            backgroundView.backgroundColor = #colorLiteral(red: 0.5529411765, green: 1, blue: 0.6117647059, alpha: 0.7)
+            collectedButton.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.7921568627, blue: 0.337254902, alpha: 0.8)
+        } else {
+            backgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            collectedButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+        
+        switch levelSensor.batteryLevel {
+        case "full":
+            batteryImageView.image = UIImage(named:"Battery_Green")
+        case "high":
+            batteryImageView.image = UIImage(named:"Battery_Yellow")
+        case "medium":
+            batteryImageView.image = UIImage(named:"Battery_Orange")
+        case "low":
+            batteryImageView.image = UIImage(named:"Battery_Red")
+        case "empty":
+             batteryImageView.image = UIImage(named:"Battery")
+        default:
+            break
+        }
+        
         
         backgroundView.layer.cornerRadius = ViewConstants.cornerRadiusForTableCell
         backgroundView.layer.borderWidth = ViewConstants.lineWidth
@@ -47,17 +77,13 @@ class LevelSensorViewController: UIViewController {
         levelLabel.layer.borderColor = UIColor.black.cgColor
         levelLabel.layer.borderWidth = ViewConstants.lineWidth
         
+        
         collectedButton.layer.cornerRadius = collectedButton.bounds.height/2
         collectedButton.layer.borderWidth = ViewConstants.lineWidth
-        collectedButton.contentMode = .scaleToFill
-        collectedButton.imageView?.frame = ViewConstants.tickButtonImageFrame
-    
-        
-        
+        collectedButton.contentMode = .center
+        collectedButton.imageEdgeInsets = ViewConstants.tickButtonImageInset
     
     
-        print(collectedButton.imageView?.frame)
-         print(collectedButton.imageView?.image)
         
         
         
@@ -68,6 +94,7 @@ class LevelSensorViewController: UIViewController {
     
     @IBOutlet weak var barrelTableView: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
+    
     
 }
 

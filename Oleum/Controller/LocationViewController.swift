@@ -18,8 +18,8 @@ class LocationViewController: UIViewController {
         // Do any additional setup after loading the view.
         locationTableView.dataSource = self
         locationTableView.delegate = self
-        locationTableView.layer.borderWidth = 1
-        locationTableView.layer.cornerRadius = 10
+        locationTableView.layer.borderWidth = ViewConstants.lineWidth
+        locationTableView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
         
         
     }

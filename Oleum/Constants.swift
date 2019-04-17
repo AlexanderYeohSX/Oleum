@@ -17,8 +17,10 @@ struct ViewConstants {
     static let cornerRadiusForLabel:CGFloat = 25.0
     static let lineWidth: CGFloat = 1.0
     static let cornerRadiusForTableCell: CGFloat = 20.0
-    static let tickButtonImageFrame: CGRect = CGRect(x: 9.5, y: 12.0, width: 16.0, height: 11.0)
-    
+    static let cornerRadiusForViews: CGFloat = 10.0
+    static let tickButtonImageInset: UIEdgeInsets = UIEdgeInsets(top: 12.0, left: 9.5, bottom: 12.0, right: 9.5)
+    static let themeColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    static let lineColor: CGColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
 }
 

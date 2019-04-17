@@ -22,21 +22,22 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         LevelSensorStore.shared.initializeFromFirebaseDatabase()
         print(LevelSensorStore.shared.levelSensorCache.keys)
-        requestTacButton.layer.cornerRadius = 20
-        requestTacButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        requestTacButton.layer.borderWidth = 1
-        verifyButton.layer.cornerRadius = 20
-        verifyButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        verifyButton.layer.borderWidth = 1
+        requestTacButton.layer.cornerRadius =  requestTacButton.layer.frame.height/2
+        requestTacButton.layer.borderColor = ViewConstants.lineColor
+        requestTacButton.layer.borderWidth = ViewConstants.lineWidth
+        verifyButton.layer.cornerRadius = verifyButton.layer.frame.height/2
+        verifyButton.layer.borderColor = ViewConstants.lineColor
+        verifyButton.layer.borderWidth = ViewConstants.lineWidth
 
 
+        print()
         
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = ViewConstants.themeColor
         //self.navigationController?.navigationBar.
-        for view in textFieldView {
-            view.layer.borderWidth = 1
-            view.layer.cornerRadius = 10
-            view.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        for view in textFieldViews {
+            view.layer.borderWidth = ViewConstants.lineWidth
+            view.layer.cornerRadius = ViewConstants.cornerRadiusForViews
+            view.layer.borderColor = ViewConstants.lineColor
         }
         
         // Do any additional setup after loading the view.
@@ -84,7 +85,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var requestTacButton: UIButton!
     @IBOutlet weak var verifyButton: UIButton!
     
-    @IBOutlet var textFieldView: [UIView]!
+    @IBOutlet var textFieldViews: [UIView]!
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
