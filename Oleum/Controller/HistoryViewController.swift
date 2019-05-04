@@ -23,6 +23,26 @@ class HistoryViewController: UIViewController {
         historyTableView.layer.borderWidth = ViewConstants.lineWidth
         historyTableView.layer.borderColor = ViewConstants.lineColor
         historyTableView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
+        
+        switch levelSensorSelected!.batteryLevel {
+        case BatteryLevelConstants.full:
+            batteryHorizontalImageView.image = UIImage(named:"Battery_Horizontal_Green")
+        case BatteryLevelConstants.high:
+            batteryHorizontalImageView.image = UIImage(named:"Battery_Horizontal_Yellow")
+        case BatteryLevelConstants.medium:
+            batteryHorizontalImageView.image = UIImage(named:"Battery_Horizontal_Orange")
+        case BatteryLevelConstants.low:
+            batteryHorizontalImageView.image = UIImage(named:"Battery_Horizontal_Red")
+        case BatteryLevelConstants.empty:
+            batteryHorizontalImageView.image = UIImage(named:"Battery_Horizontal")
+        default:
+            break
+        }
+        if levelSensorSelected!.isConnected {
+            WifiImageView.image = UIImage(named: "Wifi")
+        } else {
+            WifiImageView.image = UIImage(named: "Wifi_Off")
+        }
     }
     
 
@@ -40,6 +60,11 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var historyTableView: UITableView!
     
     @IBOutlet weak var levelSensorLabel: UILabel!
+    
+    @IBOutlet weak var batteryHorizontalImageView: UIImageView!
+    
+    @IBOutlet weak var WifiImageView: UIImageView!
+    
 }
 
 extension HistoryViewController: UITableViewDelegate,UITableViewDataSource{
@@ -50,7 +75,7 @@ extension HistoryViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
        
-        var cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
         
         return cell
         

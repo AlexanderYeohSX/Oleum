@@ -44,6 +44,14 @@ class LevelSensorStore {
                                     self.levelSensorCache[locationString] = [(LevelSensor(tag: levelSensorString, batteryLevel: batteryLevel, collectedBy: collectedBy, isConnected: isConnected, isFull: isFull, lastCollected: lastCollected))]
                                     }
                                     
+                                    self.sortLevelSensors(at: locationString)
+                                    
+                                 
+                                    
+//                                    self.levelSensorCache[locationString]?.sort() { frontLevelSensor,backLevelSensor in
+//                                        
+//                                        return frontLevelSensor.isFull
+//                                    }
                                 }
                             }
                         }
@@ -83,4 +91,29 @@ class LevelSensorStore {
             return levelSensorCache[location]
         
     }
+    
+    func sortLevelSensors(at location:String){
+        
+        levelSensorCache[location]!.sort() { frontLevelSensor,backLevelSensor in
+            
+            let frontSensorEndChar = String(frontLevelSensor.tag[frontLevelSensor.tag.index(before: frontLevelSensor.tag.endIndex)])
+            let backSensorEndChar = String(backLevelSensor.tag[backLevelSensor.tag.index(before: backLevelSensor.tag.endIndex)])
+            
+            if frontLevelSensor.isFull != backLevelSensor.isFull {
+                return frontLevelSensor.isFull
+            }
+            
+            return (Int(frontSensorEndChar)) ?? 0 < (Int(backSensorEndChar)) ?? 0
+        }
+        
+    }
+    
+    func updateLevelSensor(at location: String, for levelSensors: [LevelSensor]) {
+    
+        levelSensorCache[location] = levelSensors
+        
+        sortLevelSensors(at: location)
+    }
+    
+    
 }

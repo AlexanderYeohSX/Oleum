@@ -18,7 +18,7 @@ struct ViewConstants {
     static let lineWidth: CGFloat = 1.0
     static let cornerRadiusForTableCell: CGFloat = 20.0
     static let cornerRadiusForViews: CGFloat = 10.0
-    static let tickButtonImageInset: UIEdgeInsets = UIEdgeInsets(top: 12.0, left: 9.5, bottom: 12.0, right: 9.5)
+    static let tickButtonImageInset: UIEdgeInsets = UIEdgeInsets(top: 9.5, left: 9.5, bottom: 9.5, right: 9.5)
     static let themeColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     static let lineColor: CGColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
@@ -34,4 +34,17 @@ struct DbConstants {
 struct ModelConstants {
     
     static let noLocation = "No Location Available"
+}
+
+struct ImageAssets {
+    
+    let tick = "Tick"
+}
+
+struct BatteryLevelConstants {
+    static let empty = "empty"
+    static let high = "high"
+    static let medium = "medium"
+    static let low = "low"
+    static let full = "full"
 }

@@ -12,8 +12,8 @@ class LevelSensorViewController: UIViewController {
 
     let historySegue = "HistorySegue"
     var locationSelected: String = ModelConstants.noLocation
-    private var levelSensorsAtLocation = [LevelSensor]()
-    var tag: Int = 0;
+    private var levelSensorsAtLocation = [LevelSensor]() 
+    var tagForCell: Int = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,18 +51,21 @@ class LevelSensorViewController: UIViewController {
         } else {
             backgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             collectedButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            collectedButton.setImage(#imageLiteral(resourceName: "Cross"), for: .normal)
         }
         
+        
+        
         switch levelSensor.batteryLevel {
-        case "full":
+        case BatteryLevelConstants.full:
             batteryImageView.image = UIImage(named:"Battery_Green")
-        case "high":
+        case BatteryLevelConstants.high:
             batteryImageView.image = UIImage(named:"Battery_Yellow")
-        case "medium":
+        case BatteryLevelConstants.medium:
             batteryImageView.image = UIImage(named:"Battery_Orange")
-        case "low":
+        case BatteryLevelConstants.low:
             batteryImageView.image = UIImage(named:"Battery_Red")
-        case "empty":
+        case BatteryLevelConstants.empty:
              batteryImageView.image = UIImage(named:"Battery")
         default:
             break
@@ -82,18 +85,52 @@ class LevelSensorViewController: UIViewController {
         collectedButton.layer.borderWidth = ViewConstants.lineWidth
         collectedButton.contentMode = .center
         collectedButton.imageEdgeInsets = ViewConstants.tickButtonImageInset
+        
+        collectedButton.addTarget(self, action: #selector(self.didCollected(_:)), for: .touchUpInside)
     
     
         
         
         
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(sender:))))
-        backgroundView.tag = tag
-        tag += 1
+        
+        backgroundView.tag = tagForCell
+    
+        tagForCell += 1
     }
+    
+    func reloadData() {
+        
+        tagForCell = 0
+        
+        if let levelSensorsFromStorage = LevelSensorStore.shared.getLevelSensors(at: locationSelected) {
+            levelSensorsAtLocation = levelSensorsFromStorage
+        }
+        
+        barrelTableView.reloadData()
+        
+    }
+    
+    @objc func didCollected(_ sender:UIButton!)
+    {
+        
+        if let cellTag = sender.superview?.tag {
+            
+            levelSensorsAtLocation[cellTag].isFull = false
+            LevelSensorStore.shared.updateLevelSensor(at: locationSelected, for: levelSensorsAtLocation)
+            
+            reloadData()
+            
+            performSegue(withIdentifier: historySegue, sender: cellTag)
+        }
+        
+    }
+
+    
     
     @IBOutlet weak var barrelTableView: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
+    
     
     
 }
@@ -110,7 +147,7 @@ extension LevelSensorViewController: UITableViewDataSource, UITableViewDelegate 
             cell = tableView.dequeueReusableCell(withIdentifier: "barrelCell")!
         
             let levelSensorAtCell = levelSensorsAtLocation[indexPath.row]
-    
+        
             updateTableViewCell(forCell: cell, withLevelSensor: levelSensorAtCell)
         
         
@@ -126,6 +163,7 @@ extension LevelSensorViewController: UITableViewDataSource, UITableViewDelegate 
     @objc func cellTapped(sender: UIGestureRecognizer){
 
         performSegue(withIdentifier: historySegue, sender: sender.view?.tag)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

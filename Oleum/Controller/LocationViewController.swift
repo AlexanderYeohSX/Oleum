@@ -21,6 +21,13 @@ class LocationViewController: UIViewController {
         locationTableView.layer.borderWidth = ViewConstants.lineWidth
         locationTableView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        
+        ///Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+        
+        self.view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -42,6 +49,11 @@ class LocationViewController: UIViewController {
         
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     
     @IBOutlet weak var locationTableView: UITableView!
     
@@ -56,6 +68,7 @@ extension LocationViewController: UITableViewDataSource,UITableViewDelegate {
         var cell = UITableViewCell()
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "searchCell")!
+            
             
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")!
