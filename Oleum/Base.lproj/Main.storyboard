@@ -23,158 +23,216 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhX-YJ-Fo9">
-                                <rect key="frame" x="150" y="674" width="77" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Verify">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Icx-JD-MMF"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Oleum! Pluck in your info and get started right away!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6w-dv-9bs">
-                                <rect key="frame" x="33" y="145" width="311" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-nd-IaZ">
-                                <rect key="frame" x="114" y="514" width="161" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Request TAC Number">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ri4-e4-guZ">
-                                <rect key="frame" x="63" y="269" width="250" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="hZR-aY-6RF">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-Vq-Osh">
-                                        <rect key="frame" x="60" y="0.0" width="190" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAg-GO-T59">
-                                        <rect key="frame" x="10" y="1" width="50" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhX-YJ-Fo9">
+                                        <rect key="frame" x="149" y="549" width="77" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ced-UC-lEc"/>
+                                            <constraint firstAttribute="width" constant="77" id="jvj-Qf-bTj"/>
+                                        </constraints>
+                                        <state key="normal" title="Verify">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Icx-JD-MMF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Oleum! Pluck in your info and get started right away!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6w-dv-9bs">
+                                        <rect key="frame" x="32" y="20" width="311" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="311" id="Pnd-2X-172"/>
+                                            <constraint firstAttribute="height" constant="96" id="RFL-73-Yr8"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="96" id="ama-YC-w9L"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="311" id="wdc-fj-IUU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2UD-Qt-bbb">
-                                <rect key="frame" x="63" y="327" width="250" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fy-xu-TXr">
-                                        <rect key="frame" x="60" y="0.0" width="190" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HP no." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOd-7L-VMh">
-                                        <rect key="frame" x="10" y="1" width="50" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpU-RH-hEx">
-                                <rect key="frame" x="63" y="390" width="250" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-rP-IQs">
-                                        <rect key="frame" x="105" y="0.0" width="145" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Employee no." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKC-ni-KKW">
-                                        <rect key="frame" x="10" y="1" width="100" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nmv-qt-9qn">
-                                <rect key="frame" x="62" y="453" width="250" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMX-mG-MUk">
-                                        <rect key="frame" x="105" y="0.0" width="145" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Working Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hk-lt-u92">
-                                        <rect key="frame" x="10" y="1" width="85" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cy2-57-A7N">
-                                <rect key="frame" x="111" y="607" width="155" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TAC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jF-yL-1e9">
-                                        <rect key="frame" x="10" y="1" width="40" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-wo-7xP">
-                                        <rect key="frame" x="58" y="1" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-nd-IaZ">
+                                        <rect key="frame" x="107" y="389" width="161" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Bvi-jO-sOY"/>
+                                            <constraint firstAttribute="width" constant="161" id="V1M-Ap-1eu"/>
+                                        </constraints>
+                                        <state key="normal" title="Request TAC Number">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ri4-e4-guZ">
+                                        <rect key="frame" x="62.666666666666657" y="144" width="249.99999999999997" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-Vq-Osh">
+                                                <rect key="frame" x="60" y="0.0" width="190" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAg-GO-T59">
+                                                <rect key="frame" x="10" y="1" width="50" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cp0-lB-cGK"/>
+                                            <constraint firstAttribute="width" constant="250" id="mVq-VN-DQh"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UD-Qt-bbb">
+                                        <rect key="frame" x="62.666666666666657" y="202" width="249.99999999999997" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fy-xu-TXr">
+                                                <rect key="frame" x="60" y="0.0" width="190" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HP no." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOd-7L-VMh">
+                                                <rect key="frame" x="10" y="1" width="50" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hUT-DT-KWX"/>
+                                            <constraint firstAttribute="width" constant="250" id="iO3-pJ-bo1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpU-RH-hEx">
+                                        <rect key="frame" x="62.666666666666657" y="265" width="249.99999999999997" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-rP-IQs">
+                                                <rect key="frame" x="105" y="0.0" width="145" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Employee no." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKC-ni-KKW">
+                                                <rect key="frame" x="10" y="1" width="100" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ANQ-by-nAY"/>
+                                            <constraint firstAttribute="width" constant="250" id="Bep-pN-dun"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmv-qt-9qn">
+                                        <rect key="frame" x="62.666666666666657" y="328" width="249.99999999999997" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMX-mG-MUk">
+                                                <rect key="frame" x="105" y="0.0" width="145" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Working Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hk-lt-u92">
+                                                <rect key="frame" x="10" y="1" width="85" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="nGs-G1-HHQ"/>
+                                            <constraint firstAttribute="height" constant="30" id="y7O-2M-7sU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cy2-57-A7N">
+                                        <rect key="frame" x="110" y="482" width="155" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TAC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jF-yL-1e9">
+                                                <rect key="frame" x="10" y="1" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-wo-7xP">
+                                                <rect key="frame" x="58" y="1" width="97" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="155" id="OWO-PI-vx1"/>
+                                            <constraint firstAttribute="height" constant="30" id="WiV-Sn-X0t"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                                <constraints>
+                                    <constraint firstItem="j6w-dv-9bs" firstAttribute="centerX" secondItem="Ri4-e4-guZ" secondAttribute="centerX" id="39r-0g-8Pn"/>
+                                    <constraint firstItem="cy2-57-A7N" firstAttribute="centerX" secondItem="VhX-YJ-Fo9" secondAttribute="centerX" id="AZ1-80-ZU6"/>
+                                    <constraint firstItem="2UD-Qt-bbb" firstAttribute="top" secondItem="Ri4-e4-guZ" secondAttribute="bottom" constant="28" id="Ak5-J6-yHI"/>
+                                    <constraint firstAttribute="bottom" secondItem="VhX-YJ-Fo9" secondAttribute="bottom" constant="135" id="FQn-Sp-jwn"/>
+                                    <constraint firstItem="VhX-YJ-Fo9" firstAttribute="top" secondItem="cy2-57-A7N" secondAttribute="bottom" constant="37" id="IXQ-cD-hHQ"/>
+                                    <constraint firstItem="Ri4-e4-guZ" firstAttribute="leading" secondItem="2UD-Qt-bbb" secondAttribute="leading" id="UYP-Fs-p2N"/>
+                                    <constraint firstItem="j6w-dv-9bs" firstAttribute="top" secondItem="hZR-aY-6RF" secondAttribute="top" constant="20" id="Wsi-VP-J2c"/>
+                                    <constraint firstItem="qpU-RH-hEx" firstAttribute="top" secondItem="2UD-Qt-bbb" secondAttribute="bottom" constant="33" id="ZAv-xZ-6zd"/>
+                                    <constraint firstItem="2n8-nd-IaZ" firstAttribute="top" secondItem="Nmv-qt-9qn" secondAttribute="bottom" constant="31" id="aSm-fN-1em"/>
+                                    <constraint firstItem="qpU-RH-hEx" firstAttribute="leading" secondItem="Nmv-qt-9qn" secondAttribute="leading" id="bGL-nk-foU"/>
+                                    <constraint firstItem="Ri4-e4-guZ" firstAttribute="top" secondItem="j6w-dv-9bs" secondAttribute="bottom" constant="28" id="jav-ch-7CQ"/>
+                                    <constraint firstItem="2UD-Qt-bbb" firstAttribute="leading" secondItem="qpU-RH-hEx" secondAttribute="leading" id="lvS-6E-Vtj"/>
+                                    <constraint firstItem="Nmv-qt-9qn" firstAttribute="top" secondItem="qpU-RH-hEx" secondAttribute="bottom" constant="33" id="n2c-yo-sdF"/>
+                                    <constraint firstItem="Nmv-qt-9qn" firstAttribute="centerX" secondItem="2n8-nd-IaZ" secondAttribute="centerX" id="nNk-6o-hjb"/>
+                                    <constraint firstItem="cy2-57-A7N" firstAttribute="top" secondItem="2n8-nd-IaZ" secondAttribute="bottom" constant="53" id="pDT-Tc-0bZ"/>
+                                    <constraint firstItem="j6w-dv-9bs" firstAttribute="centerX" secondItem="hZR-aY-6RF" secondAttribute="centerX" id="qmT-uD-pG6"/>
+                                    <constraint firstItem="2n8-nd-IaZ" firstAttribute="centerX" secondItem="cy2-57-A7N" secondAttribute="centerX" id="w6p-hc-Upt"/>
+                                    <constraint firstAttribute="trailing" secondItem="j6w-dv-9bs" secondAttribute="trailing" constant="32" id="y67-yZ-gSA"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hZR-aY-6RF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="H6W-l8-ZbR"/>
+                            <constraint firstItem="hZR-aY-6RF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RA0-Ip-fTE"/>
+                            <constraint firstAttribute="bottom" secondItem="hZR-aY-6RF" secondAttribute="bottom" id="UpF-bL-s4j"/>
+                            <constraint firstItem="hZR-aY-6RF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cSw-Ex-pda"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Oleum" id="9dp-0N-bN0"/>
                     <connections>
                         <outlet property="authTextField" destination="XBy-wo-7xP" id="8RP-Rd-AJT"/>
+                        <outlet property="loginScrollView" destination="hZR-aY-6RF" id="Heh-CW-xmE"/>
                         <outlet property="requestTacButton" destination="2n8-nd-IaZ" id="RzT-dr-8QT"/>
                         <outlet property="verifyButton" destination="VhX-YJ-Fo9" id="4fZ-JZ-pgk"/>
                         <outletCollection property="textFieldViews" destination="Ri4-e4-guZ" collectionClass="NSMutableArray" id="0r9-Gn-L8c"/>
                         <outletCollection property="textFieldViews" destination="2UD-Qt-bbb" collectionClass="NSMutableArray" id="4GU-b7-PhL"/>
-                        <outletCollection property="textFieldViews" destination="Nmv-qt-9qn" collectionClass="NSMutableArray" id="m3j-cF-skY"/>
                         <outletCollection property="textFieldViews" destination="qpU-RH-hEx" collectionClass="NSMutableArray" id="kPQ-Yr-Oo7"/>
+                        <outletCollection property="textFieldViews" destination="Nmv-qt-9qn" collectionClass="NSMutableArray" id="m3j-cF-skY"/>
                         <outletCollection property="textFieldViews" destination="cy2-57-A7N" collectionClass="NSMutableArray" id="TNq-2X-nyB"/>
                         <segue destination="kdD-XD-nNe" kind="show" identifier="LoginSegue" id="HeU-TE-zdH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764" y="777"/>
+            <point key="canvasLocation" x="2764" y="776.60098522167493"/>
         </scene>
         <!--Oleum-->
         <scene sceneID="b56-jD-JyP">
@@ -214,7 +272,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" rowHeight="54" id="UiQ-68-bXV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" rowHeight="54" id="UiQ-68-bXV">
                                         <rect key="frame" x="0.0" y="72" width="313" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UiQ-68-bXV" id="dG2-9j-pOf">
@@ -241,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uml-o8-fQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6415.1999999999998" y="776.60098522167493"/>
+            <point key="canvasLocation" x="6198" y="1513"/>
         </scene>
         <!--Oleum-->
         <scene sceneID="LtE-Rg-3Cg">
@@ -330,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1n-4U-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7268" y="776.60098522167493"/>
+            <point key="canvasLocation" x="7050" y="1513"/>
         </scene>
         <!--Oleum-->
         <scene sceneID="quh-6D-aQV">
@@ -374,8 +432,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Handled by Kean Wei at 17:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huH-wD-g7Q">
-                                                    <rect key="frame" x="139" y="18" width="159" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Handled by Kean Wei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huH-wD-g7Q">
+                                                    <rect key="frame" x="104" y="18" width="174" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="12"/>
                                                     <color key="textColor" red="0.36862745098039218" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -399,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ek3-xk-IRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8192.7999999999993" y="776.60098522167493"/>
+            <point key="canvasLocation" x="7975" y="1513"/>
         </scene>
         <!--Oleum-->
         <scene sceneID="hxo-Cx-rPS">
@@ -420,6 +478,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxu-Om-oN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3585" y="777"/>
+        </scene>
+        <!--Oleum-->
+        <scene sceneID="vb1-RT-jbk">
+            <objects>
+                <viewController id="DiD-bn-jtG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yx6-If-r2y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rNI-rV-kXy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Oleum" id="m8i-Xq-VHG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgb-b3-3Bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6178" y="42"/>
         </scene>
         <!--Oleum-->
         <scene sceneID="UTc-bx-Eb4">
@@ -580,7 +654,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azR-iR-UiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6396" y="40.64039408866995"/>
+            <point key="canvasLocation" x="6178" y="777"/>
         </scene>
         <!--Oleum-->
         <scene sceneID="PNH-Ar-lH6">
@@ -589,13 +663,15 @@
                     <navigationItem key="navigationItem" title="Oleum" id="yNI-nO-CYs"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="tr6-n6-7aS">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="fill" id="tr6-n6-7aS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="X3k-wB-gwJ" kind="relationship" relationship="viewControllers" id="Cov-5k-hWn"/>
                         <segue destination="11J-0y-8IU" kind="relationship" relationship="viewControllers" id="yhL-bA-d9z"/>
                         <segue destination="X8H-Kp-4s0" kind="relationship" relationship="viewControllers" id="dOa-Z7-ZSX"/>
                     </connections>
@@ -630,8 +706,9 @@
         <scene sceneID="kT7-79-Im9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="11J-0y-8IU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Map_Pin" selectedImage="Map_Pin_Highlighted" id="57V-Ku-NmY">
+                    <tabBarItem key="tabBarItem" title="" image="Map_Pin" selectedImage="Map_Pin" id="57V-Ku-NmY">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                        <color key="badgeColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -651,7 +728,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY9-vw-VJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5472.8000000000002" y="776.60098522167493"/>
+            <point key="canvasLocation" x="5255" y="1513"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fMA-VU-yZS">
@@ -676,16 +753,40 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wae-kb-233" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5453.6000000000004" y="40.64039408866995"/>
+            <point key="canvasLocation" x="5236" y="777"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Ac-kX-OgF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X3k-wB-gwJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Database" selectedImage="Battery_Horizontal_Orange" id="JGc-sI-IwX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hQp-3t-cHS">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="28"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DiD-bn-jtG" kind="relationship" relationship="rootViewController" id="e3a-53-rSM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CEB-Qb-w8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5236" y="42"/>
         </scene>
     </scenes>
     <resources>
         <image name="Battery" width="25.666666030883789" height="45"/>
         <image name="Battery_Horizontal" width="65" height="30.333333969116211"/>
+        <image name="Battery_Horizontal_Orange" width="39" height="18.333333969116211"/>
+        <image name="Database" width="44" height="48.666667938232422"/>
         <image name="Map_Pin" width="44" height="53.333332061767578"/>
-        <image name="Map_Pin_Highlighted" width="44" height="53.333332061767578"/>
         <image name="Settings" width="53.333332061767578" height="53.333332061767578"/>
         <image name="Tick" width="39.666667938232422" height="28"/>
         <image name="Wifi" width="51.333332061767578" height="37.333332061767578"/>
     </resources>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

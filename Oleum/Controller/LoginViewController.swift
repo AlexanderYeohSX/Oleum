@@ -12,14 +12,17 @@ class LoginViewController: UIViewController {
 
     private var authenticationCode: String = "12345"
     private var loginSegue: String  = "LoginSegue"
-    
+    var activeField: UITextField?
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Do any additional setup after loading the view.
+        loginScrollView.delegate = self
+        registerForKeyboardNotifications()
         LevelSensorStore.shared.initializeFromFirebaseDatabase()
         print(LevelSensorStore.shared.levelSensorCache.keys)
         requestTacButton.layer.cornerRadius =  requestTacButton.layer.frame.height/2
@@ -28,9 +31,6 @@ class LoginViewController: UIViewController {
         verifyButton.layer.cornerRadius = verifyButton.layer.frame.height/2
         verifyButton.layer.borderColor = ViewConstants.lineColor
         verifyButton.layer.borderWidth = ViewConstants.lineWidth
-
-
-        print()
         
         self.navigationController?.navigationBar.barTintColor = ViewConstants.themeColor
         //self.navigationController?.navigationBar.
@@ -68,6 +68,38 @@ class LoginViewController: UIViewController {
     }
 
 
+    //MARK: - Interaction
+    @objc func keyboardWasShown(notification: NSNotification){
+        
+        if let info = notification.userInfo, let keyboardFrameEndUserInfoKey = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            var keyboardRect: CGRect = keyboardFrameEndUserInfoKey.cgRectValue
+            keyboardRect = self.view.convert(keyboardRect, from: nil)
+            let keyboardTop = keyboardRect.origin.y
+            
+            var newScrollViewFrame = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.size.width, height: keyboardTop)
+            newScrollViewFrame.size.height = keyboardTop - self.view.bounds.origin.y
+            self.loginScrollView.frame = newScrollViewFrame
+            
+            if let _activeField = self.activeField {
+                self.loginScrollView.scrollRectToVisible(_activeField.frame, animated: true)
+            }
+            
+        }
+        
+    }
+    
+    @objc func keyboardWillBeHidden(notification: NSNotification){
+        
+        let defaultFrame = CGRect(x: self.loginScrollView.frame.origin.x, y: self.loginScrollView.frame.origin.y, width: self.view.frame.size.width, height:  self.view.frame.size.height)
+        
+        self.loginScrollView.frame = defaultFrame
+        let topFrame = CGRect(x: 0.0, y: 0.0, width: 1, height: 1)
+        self.loginScrollView.scrollRectToVisible(topFrame, animated: true)
+        
+        activeField = nil
+    }
+    
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         
         if authTextField.text == authenticationCode {
@@ -80,6 +112,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var authTextField: UITextField!
     
+    @IBOutlet weak var loginScrollView: UIScrollView!
     
     
     @IBOutlet weak var requestTacButton: UIButton!
@@ -93,3 +126,27 @@ class LoginViewController: UIViewController {
     }
 }
 
+extension LoginViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
+    
+    func registerForKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWasShown(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+        activeField = textField
+        
+    }
+}

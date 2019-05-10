@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6002F86B2282CA9C00BAA82E /* RoutingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002F86A2282CA9B00BAA82E /* RoutingViewController.swift */; };
 		60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60107802224FA23000F3FE87 /* TabBarViewController.swift */; };
 		60107805224FA9F300F3FE87 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60107804224FA9F300F3FE87 /* HistoryViewController.swift */; };
 		602AD7052244BB8600E37D76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		25F715C90037D758D1A24454 /* Pods-Oleum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oleum.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oleum/Pods-Oleum.release.xcconfig"; sourceTree = "<group>"; };
 		580465507EA537A77337BCB4 /* Pods_Oleum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oleum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6002F86A2282CA9B00BAA82E /* RoutingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingViewController.swift; sourceTree = "<group>"; };
 		60107801224F68AB00F3FE87 /* SegoeUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUI.ttf; sourceTree = "<group>"; };
 		60107802224FA23000F3FE87 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		60107804224FA9F300F3FE87 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				60EC4CEB2236C32600367982 /* LocationViewController.swift */,
 				60D70891223643450057F010 /* LoginViewController.swift */,
 				60107802224FA23000F3FE87 /* TabBarViewController.swift */,
+				6002F86A2282CA9B00BAA82E /* RoutingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6002F86B2282CA9C00BAA82E /* RoutingViewController.swift in Sources */,
 				60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */,
 				60D70892223643450057F010 /* LoginViewController.swift in Sources */,
 				6073C660222D282E00EEC4B2 /* LevelSensorViewController.swift in Sources */,

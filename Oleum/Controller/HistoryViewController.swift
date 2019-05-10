@@ -12,6 +12,7 @@ class HistoryViewController: UIViewController {
 
     var levelSensorSelected: LevelSensor?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +46,9 @@ class HistoryViewController: UIViewController {
         }
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        historyTableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 
@@ -69,13 +72,31 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if let dateCount = levelSensorSelected?.lastCollected.count {
+        return dateCount
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
+        
+        let dateCollectedLabel = cell.contentView.subviews[0] as! UILabel
+        let collectedByLabel = cell.contentView.subviews[1] as! UILabel
+
+        
+        if let dateToDisplay = levelSensorSelected?.lastCollected[indexPath.row] {
+            dateCollectedLabel.text = dateFormatter.string(from: dateToDisplay)
+        }
+        
+        collectedByLabel.text = "Collected by \(levelSensorSelected?.collectedBy ?? "Kean Wei")"
+        
         
         return cell
         

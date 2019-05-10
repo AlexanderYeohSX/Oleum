@@ -1,24 +1,19 @@
 //
-//  TabBarViewController.swift
+//  RoutingViewController.swift
 //  Oleum
 //
-//  Created by Kean Wei Wong on 30/03/2019.
+//  Created by Kean Wei Wong on 08/05/2019.
 //  Copyright © 2019 Kean Wei Wong. All rights reserved.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class RoutingViewController: UIViewController {
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         // Do any additional setup after loading the view.
-        
-        
     }
     
 

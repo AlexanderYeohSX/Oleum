@@ -7,18 +7,22 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class LevelSensorStore {
     
     static let shared = LevelSensorStore()
     var levelSensorCache = [String: [LevelSensor]]()
+
+   
     
-    init(){        
+    init(){
+        
     }
     
     func initializeFromFirebaseDatabase() {
         
-        DbConstants.locationRef.observeSingleEvent(of: .value) { (snapshot) in
+        DbConstants.locationRef.observe(.value) { (snapshot) in
             if let locationsOfSensorFromDb = snapshot.value as? NSDictionary {
                 for location in locationsOfSensorFromDb {
                     
@@ -30,34 +34,53 @@ class LevelSensorStore {
                             let levelSensorString = levelSensor.key as! String
                             if let sensorDataFromDb = levelSensor.value as? NSDictionary {
                                 
-                                if let batteryLevel = sensorDataFromDb["batteryLevel"] as? String ,
+                                
+                                
+                                if let batteryLevel = sensorDataFromDb["batteryLevel"] as? Int ,
                                     let collectedBy = sensorDataFromDb["collectedBy"] as? String,
                                     let isConnected = sensorDataFromDb["isConnected"] as? Bool,
-                                    let isFull = sensorDataFromDb["isFull"] as? Bool,
-                                    let lastCollected = sensorDataFromDb["lastCollected"] as? String {
-                                
-                                    if (self.levelSensorCache[locationString] != nil) {
+                                    let isFull = sensorDataFromDb["isFull"] as? Bool {
+                                    
+                                    let batteryLevelString = self.batteryLevelIntToString(forValue: batteryLevel)
+                                    var lastCollectedDate: [Date] = []
+                                    
+                                    
+                                    if let lastCollected = sensorDataFromDb["lastCollected"] as? [Double] {
+                                        for dateUnix in lastCollected {
+                                            lastCollectedDate.append(Date(timeIntervalSince1970: dateUnix))
+                                        }
+                                    }
+                                    
+                                    print(lastCollectedDate)
+                                    
+                                    let newLevelSensor = LevelSensor(tag: levelSensorString, batteryLevel: batteryLevelString, collectedBy: collectedBy, isConnected: isConnected, isFull: isFull, lastCollected: lastCollectedDate)
+                                    
+                                    if self.levelSensorCache[locationString] != nil {
                                         
-                                        self.levelSensorCache[locationString]?.append((LevelSensor(tag: levelSensorString, batteryLevel: batteryLevel, collectedBy: collectedBy, isConnected: isConnected, isFull: isFull, lastCollected: lastCollected)))
+                                        self.updateLevelSensorFromDb(newSensor: newLevelSensor,at: locationString)
+                                       
                                         
                                     } else {
-                                    self.levelSensorCache[locationString] = [(LevelSensor(tag: levelSensorString, batteryLevel: batteryLevel, collectedBy: collectedBy, isConnected: isConnected, isFull: isFull, lastCollected: lastCollected))]
+                                        
+                                        self.addLevelSensorFromDb(sensor: newLevelSensor,at: locationString)
+                                       
                                     }
                                     
                                     self.sortLevelSensors(at: locationString)
                                     
-                                 
                                     
-//                                    self.levelSensorCache[locationString]?.sort() { frontLevelSensor,backLevelSensor in
-//                                        
-//                                        return frontLevelSensor.isFull
-//                                    }
+                                    
+                                    //                                    self.levelSensorCache[locationString]?.sort() { frontLevelSensor,backLevelSensor in
+                                    //
+                                    //                                        return frontLevelSensor.isFull
+                                    //                                    }
                                 }
                             }
                         }
                     }
                 }
                 
+                NotificationCenter.default.post(name: .sensorsUpdated, object: nil)
                 print(self.levelSensorCache.keys)
                 
                 
@@ -74,7 +97,7 @@ class LevelSensorStore {
     }
     
     func getAllLocation() -> [String] {
-    
+        
         var locations = [String]()
         
         for location in levelSensorCache.keys {
@@ -88,7 +111,7 @@ class LevelSensorStore {
     
     func getLevelSensors(at location: String) -> [LevelSensor]? {
         
-            return levelSensorCache[location]
+        return levelSensorCache[location]
         
     }
     
@@ -109,11 +132,55 @@ class LevelSensorStore {
     }
     
     func updateLevelSensor(at location: String, for levelSensors: [LevelSensor]) {
-    
+        
         levelSensorCache[location] = levelSensors
         
         sortLevelSensors(at: location)
     }
     
+    func batteryLevelIntToString(forValue batteryLevelInt:Int) -> String{
+        
+        var batteryLevelString:String = "empty"
+        switch batteryLevelInt {
+        case _ where batteryLevelInt > 1000:
+            batteryLevelString = BatteryLevelConstants.full
+        case _ where batteryLevelInt >= 768:
+        batteryLevelString = BatteryLevelConstants.high
+        case _ where batteryLevelInt >= 512:
+            batteryLevelString = BatteryLevelConstants.medium
+        case _ where batteryLevelInt > 100:
+            batteryLevelString = BatteryLevelConstants.low
+        case _ where batteryLevelInt >= 0:
+            batteryLevelString = BatteryLevelConstants.empty
+        default:
+            print("Error: Battery Level Not in Range")
+        }
+        
+        return batteryLevelString
+    }
     
+    func updateLevelSensorFromDb(newSensor: LevelSensor, at location: String){
+        
+        var index = 0
+        for sensor in levelSensorCache[location]! {
+            
+            if sensor.tag == newSensor.tag {
+                
+                levelSensorCache[location]![index] = newSensor
+                return
+                
+            }
+            
+            index += 1
+        }
+        
+        self.levelSensorCache[location]?.append(newSensor)
+        
+    }
+
+    func addLevelSensorFromDb(sensor: LevelSensor, at location: String){
+        
+         levelSensorCache[location] = [sensor]
+        
+    }
 }

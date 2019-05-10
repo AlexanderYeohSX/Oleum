@@ -31,9 +31,21 @@ class SettingsViewController: UIViewController {
             view.layer.cornerRadius = ViewConstants.cornerRadiusForViews
             view.layer.borderColor = ViewConstants.lineColor
         }
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        
+        ///Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+        
+        self.view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
     
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

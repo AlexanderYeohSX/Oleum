@@ -48,3 +48,10 @@ struct BatteryLevelConstants {
     static let low = "low"
     static let full = "full"
 }
+
+extension Notification.Name {
+    
+    static let sensorsUpdated = Notification.Name("sensorsUpdated")
+    
+}
+

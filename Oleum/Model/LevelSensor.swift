@@ -15,7 +15,7 @@ struct LevelSensor {
     var collectedBy: String
     var isConnected: Bool
     var isFull: Bool
-    var lastCollected: String
+    var lastCollected: [Date]
 
     
 }

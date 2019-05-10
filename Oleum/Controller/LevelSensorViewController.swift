@@ -28,6 +28,8 @@ class LevelSensorViewController: UIViewController {
         barrelTableView.dataSource = self
         barrelTableView.delegate = self
         locationLabel.text = locationSelected
+        
+        listenForSensorChanges()
       
     }
     
@@ -48,6 +50,7 @@ class LevelSensorViewController: UIViewController {
         if levelSensor.isFull {
             backgroundView.backgroundColor = #colorLiteral(red: 0.5529411765, green: 1, blue: 0.6117647059, alpha: 0.7)
             collectedButton.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.7921568627, blue: 0.337254902, alpha: 0.8)
+             collectedButton.setImage(#imageLiteral(resourceName: "Tick"), for: .normal)
         } else {
             backgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             collectedButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -96,6 +99,7 @@ class LevelSensorViewController: UIViewController {
         
         backgroundView.tag = tagForCell
     
+        
         tagForCell += 1
     }
     
@@ -113,15 +117,20 @@ class LevelSensorViewController: UIViewController {
     
     @objc func didCollected(_ sender:UIButton!)
     {
-        
         if let cellTag = sender.superview?.tag {
             
-            levelSensorsAtLocation[cellTag].isFull = false
-            LevelSensorStore.shared.updateLevelSensor(at: locationSelected, for: levelSensorsAtLocation)
-            
-            reloadData()
-            
-            performSegue(withIdentifier: historySegue, sender: cellTag)
+            if levelSensorsAtLocation[cellTag].isFull {
+                levelSensorsAtLocation[cellTag].isFull = false
+                levelSensorsAtLocation[cellTag].lastCollected.append(Date())
+                performSegue(withIdentifier: historySegue, sender: cellTag)
+                LevelSensorStore.shared.updateLevelSensor(at: locationSelected, for: levelSensorsAtLocation)
+                
+                
+                reloadData()
+                
+               
+                
+            }
         }
         
     }
@@ -150,6 +159,9 @@ extension LevelSensorViewController: UITableViewDataSource, UITableViewDelegate 
         
             updateTableViewCell(forCell: cell, withLevelSensor: levelSensorAtCell)
         
+        if indexPath.row == barrelTableView.numberOfRows(inSection: 0){
+            tagForCell = 0
+        }
         
         return cell
     }
@@ -179,5 +191,17 @@ extension LevelSensorViewController: UITableViewDataSource, UITableViewDelegate 
             
         }
     }
+    
+    func listenForSensorChanges(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViewForLatestSensorsData), name: .sensorsUpdated, object: nil)
+    }
+    
+    @objc func updateViewForLatestSensorsData() {
+        if let levelSensorsFromStorage = LevelSensorStore.shared.getLevelSensors(at: locationSelected) {
+            levelSensorsAtLocation = levelSensorsFromStorage
+        }
+        
+        reloadData()
+    }
 }
-
