@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
         profileView.layer.cornerRadius = ViewConstants.cornerRadiusForLabel
         profileView.layer.borderColor = ViewConstants.lineColor
         profileView.layer.borderWidth = ViewConstants.lineWidth
-        
+    
         checkInButton.layer.cornerRadius = checkInButton.layer.frame.height/2
         checkInButton.layer.borderColor = ViewConstants.lineColor
         checkInButton.layer.borderWidth = ViewConstants.lineWidth
@@ -30,6 +30,10 @@ class SettingsViewController: UIViewController {
             view.layer.borderWidth = ViewConstants.lineWidth
             view.layer.cornerRadius = ViewConstants.cornerRadiusForViews
             view.layer.borderColor = ViewConstants.lineColor
+        }
+        
+        for textField in settingsTextFields {
+            textField.borderStyle = .none
         }
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -62,4 +66,9 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet weak var checkOutButton: UIButton!
+    
+    @IBOutlet var settingsButtons: [UIBarButtonItem]!
+    
+    @IBOutlet var settingsTextFields: [UITextField]!
+    
 }

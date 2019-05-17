@@ -10,10 +10,11 @@ import UIKit
 
 class LevelSensorViewController: UIViewController {
 
-    let historySegue = "HistorySegue"
+    let historySegue = ViewConstants.historySegue
     var locationSelected: String = ModelConstants.noLocation
     private var levelSensorsAtLocation = [LevelSensor]() 
     var tagForCell: Int = 0;
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,27 +121,21 @@ class LevelSensorViewController: UIViewController {
         if let cellTag = sender.superview?.tag {
             
             if levelSensorsAtLocation[cellTag].isFull {
+                
                 levelSensorsAtLocation[cellTag].isFull = false
                 levelSensorsAtLocation[cellTag].lastCollected.append(Date())
                 performSegue(withIdentifier: historySegue, sender: cellTag)
-                LevelSensorStore.shared.updateLevelSensor(at: locationSelected, for: levelSensorsAtLocation)
-                
-                
+                LevelSensorStore.shared.updateLevelSensor(at: locationSelected, for: levelSensorsAtLocation[cellTag])
                 reloadData()
                 
-               
-                
             }
+            
         }
         
     }
 
-    
-    
     @IBOutlet weak var barrelTableView: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
-    
-    
     
 }
 
@@ -205,3 +200,4 @@ extension LevelSensorViewController: UITableViewDataSource, UITableViewDelegate 
         reloadData()
     }
 }
+

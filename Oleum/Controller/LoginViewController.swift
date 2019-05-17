@@ -14,11 +14,15 @@ class LoginViewController: UIViewController {
     private var loginSegue: String  = "LoginSegue"
     var activeField: UITextField?
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if loginScrollView.superview!.layer.frame.height >= 600 {
+            
+            loginScrollView.isScrollEnabled = false
+        }
         
         // Do any additional setup after loading the view.
         loginScrollView.delegate = self
@@ -32,12 +36,20 @@ class LoginViewController: UIViewController {
         verifyButton.layer.borderColor = ViewConstants.lineColor
         verifyButton.layer.borderWidth = ViewConstants.lineWidth
         
+        
         self.navigationController?.navigationBar.barTintColor = ViewConstants.themeColor
-        //self.navigationController?.navigationBar.
+        
+       
+        //self.navigationController?.navigationBar.shadowImage = UIColor.black.as1ptImage()
+
         for view in textFieldViews {
             view.layer.borderWidth = ViewConstants.lineWidth
             view.layer.cornerRadius = ViewConstants.cornerRadiusForViews
             view.layer.borderColor = ViewConstants.lineColor
+        }
+        
+        for textField in loginTextFields {
+            textField.borderStyle = .none
         }
         
         // Do any additional setup after loading the view.
@@ -71,6 +83,8 @@ class LoginViewController: UIViewController {
     //MARK: - Interaction
     @objc func keyboardWasShown(notification: NSNotification){
         
+        loginScrollView.isScrollEnabled = true
+        
         if let info = notification.userInfo, let keyboardFrameEndUserInfoKey = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             var keyboardRect: CGRect = keyboardFrameEndUserInfoKey.cgRectValue
             keyboardRect = self.view.convert(keyboardRect, from: nil)
@@ -92,6 +106,11 @@ class LoginViewController: UIViewController {
         
         let defaultFrame = CGRect(x: self.loginScrollView.frame.origin.x, y: self.loginScrollView.frame.origin.y, width: self.view.frame.size.width, height:  self.view.frame.size.height)
         
+        if loginScrollView.superview!.layer.frame.height >= 600 {
+            
+            loginScrollView.isScrollEnabled = false
+        }
+        
         self.loginScrollView.frame = defaultFrame
         let topFrame = CGRect(x: 0.0, y: 0.0, width: 1, height: 1)
         self.loginScrollView.scrollRectToVisible(topFrame, animated: true)
@@ -110,8 +129,10 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var authTextField: UITextField!
     
+    @IBOutlet var loginTextFields: [UITextField]!
+    
+    @IBOutlet weak var authTextField: UITextField!
     @IBOutlet weak var loginScrollView: UIScrollView!
     
     
@@ -119,6 +140,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var verifyButton: UIButton!
     
     @IBOutlet var textFieldViews: [UIView]!
+    
+    @IBOutlet weak var navBar: UINavigationItem!
+    
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -148,5 +172,18 @@ extension LoginViewController: UITextFieldDelegate {
     
         activeField = textField
         
+    }
+}
+
+
+extension UIColor {
+    func as1ptImage() -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        let ctx = UIGraphicsGetCurrentContext()
+        self.setFill()
+        ctx!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
 }

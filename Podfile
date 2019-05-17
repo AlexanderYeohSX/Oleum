@@ -11,5 +11,8 @@ target 'Oleum' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'MapboxDirections.swift', '~> 0.27'
 
 end

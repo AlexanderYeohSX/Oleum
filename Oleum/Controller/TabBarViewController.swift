@@ -13,15 +13,14 @@ class TabBarViewController: UITabBarController {
     
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
-
+        tabBar.layer.borderWidth = ViewConstants.lineWidth
+        tabBar.layer.borderColor = ViewConstants.lineColor
+        tabBarController?.selectedIndex = 2
         // Do any additional setup after loading the view.
-        
-        
     }
-    
-
     /*
     // MARK: - Navigation
 

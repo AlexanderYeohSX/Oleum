@@ -49,7 +49,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MapboxDirections.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Oleum.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Polyline.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

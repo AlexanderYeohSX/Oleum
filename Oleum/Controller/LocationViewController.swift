@@ -10,7 +10,12 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
-    let levelSensorSegue = "LevelSensorSegue"
+    let levelSensorSegue = ViewConstants.levelSensorSegue
+    var locationToDisplay: [String] = [] {
+        didSet{
+            locationTableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +23,25 @@ class LocationViewController: UIViewController {
         // Do any additional setup after loading the view.
         locationTableView.dataSource = self
         locationTableView.delegate = self
-        locationTableView.layer.borderWidth = ViewConstants.lineWidth
-        locationTableView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
+        locationTableView.separatorColor = ViewConstants.lineUIColor
+    
+        locationView.layer.borderWidth = ViewConstants.lineWidth
+        locationView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
+        
+        searchView.layer.borderWidth = ViewConstants.lineWidth
+        searchView.layer.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        searchBar.delegate = self
+        
+        locationToDisplay = LevelSensorStore.shared.getAllLocation()
+        
+        if let searchField = searchBar.value(forKey: "searchField") as? UITextField {
+            
+            searchField.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+            searchField.layer.cornerRadius = 0
+            searchField.attributedPlaceholder = NSAttributedString(string: "Search...", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 14.0)!])
+         
+        }
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         
@@ -28,25 +50,19 @@ class LocationViewController: UIViewController {
         
         self.view.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
-        
     }
     
-
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == levelSensorSegue {
+            
             let locationCellSelected = sender as! UITableViewCell
             let lsvc = segue.destination as! LevelSensorViewController
-            
             lsvc.locationSelected = locationCellSelected.textLabel?.text ?? ModelConstants.noLocation
-            
         }
-        
     }
     
     func dismissKeyboard() {
@@ -54,39 +70,46 @@ class LocationViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
     @IBOutlet weak var locationTableView: UITableView!
-    
+    @IBOutlet weak var locationView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchView: UIView!
 }
 
-extension LocationViewController: UITableViewDataSource,UITableViewDelegate {
+extension LocationViewController: UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LevelSensorStore.shared.numberOfLocation() + 1  //+1 for search cell
+        return locationToDisplay.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "searchCell")!
-            
-            
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")!
-            cell.textLabel?.text = LevelSensorStore.shared.getAllLocation()[(indexPath.row - 1)] // minus search cell row.
-        }
         
+        var cell = UITableViewCell()
+        cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")!
+        cell.textLabel?.text = locationToDisplay[(indexPath.row)]
+        print(cell)
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height: CGFloat = 50.0
-        
-        if indexPath.row >= 1 {
-            
-            height = 54.0
-            
-        }
-        
+       
+        let height:CGFloat = 54.0
         return height
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        locationToDisplay = LevelSensorStore.shared.getAllLocation()
+        if searchText == "" {
+            return
+        }
+        locationToDisplay = locationToDisplay.filter { locationString -> Bool in
+            return locationString.lowercased().contains(searchText.lowercased())
+        }
+        
+        
+    }
 }
+
+

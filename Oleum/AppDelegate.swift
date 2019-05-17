@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        UINavigationBar.appearance().shadowImage = UIColor.black.as1ptImage()
+        GMSServices.provideAPIKey("AIzaSyC1jQIU073y3HUtw6vui3sWHdECz8lrHv0")
+        GMSPlacesClient.provideAPIKey("AIzaSyC1jQIU073y3HUtw6vui3sWHdECz8lrHv0")
         return true
     }
 

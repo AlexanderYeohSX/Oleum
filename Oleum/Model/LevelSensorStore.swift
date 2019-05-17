@@ -131,16 +131,27 @@ class LevelSensorStore {
         
     }
     
-    func updateLevelSensor(at location: String, for levelSensors: [LevelSensor]) {
-        
-        levelSensorCache[location] = levelSensors
+    func updateLevelSensor(at location: String, for sensorFromView: LevelSensor) {
+    
+        for levelSensor in levelSensorCache[location]! {
+            
+            if levelSensor.tag == sensorFromView.tag {
+                
+                let sensorIndex = getIndexOfSensor(withTag: levelSensor.tag, at: location)
+                levelSensorCache[location]![sensorIndex] = sensorFromView
+                
+            }
+            
+            
+        }
+        updateFirebaseDatabase(for: sensorFromView, at: location)
         
         sortLevelSensors(at: location)
     }
     
     func batteryLevelIntToString(forValue batteryLevelInt:Int) -> String{
         
-        var batteryLevelString:String = "empty"
+        var batteryLevelString:String = BatteryLevelConstants.empty
         switch batteryLevelInt {
         case _ where batteryLevelInt > 1000:
             batteryLevelString = BatteryLevelConstants.full
@@ -180,7 +191,35 @@ class LevelSensorStore {
 
     func addLevelSensorFromDb(sensor: LevelSensor, at location: String){
         
-         levelSensorCache[location] = [sensor]
+        levelSensorCache[location] = [sensor]
         
+    }
+    
+    private func getIndexOfSensor(withTag tag: String, at location:String) -> Int {
+
+        let levelSensors = levelSensorCache[location]!
+        var sensorIndex = 0
+        
+        for index in 0 ... (levelSensors.count - 1) {
+            if levelSensors[index].tag == tag {
+                sensorIndex = index
+            }
+        }
+        
+        return sensorIndex
+        
+    }
+    
+    private func updateFirebaseDatabase(for sensor: LevelSensor, at location: String) {
+        
+        var dateUnixArray: [Int] = []
+        
+        for date in sensor.lastCollected {
+            
+            dateUnixArray.append(Int(date.timeIntervalSince1970))
+        }
+        DbConstants.locationRef.child(location).child(sensor.tag).child("isFull").setValue(sensor.isFull)
+        DbConstants.locationRef.child(location).child(sensor.tag).child("lastCollected").setValue(dateUnixArray)
+
     }
 }

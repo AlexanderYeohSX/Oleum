@@ -24,6 +24,7 @@ class HistoryViewController: UIViewController {
         historyTableView.layer.borderWidth = ViewConstants.lineWidth
         historyTableView.layer.borderColor = ViewConstants.lineColor
         historyTableView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
+        historyTableView.separatorColor = ViewConstants.lineUIColor
         
         switch levelSensorSelected!.batteryLevel {
         case BatteryLevelConstants.full:
@@ -83,7 +84,7 @@ extension HistoryViewController: UITableViewDelegate,UITableViewDataSource{
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy hh:mm a")
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
         
