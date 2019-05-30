@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  OilOil
+//  Oleum
 //
 //  Created by Kean Wei Wong on 11/03/2019.
 //  Copyright © 2019 Kean Wei Wong. All rights reserved.
@@ -14,8 +14,6 @@ class LoginViewController: UIViewController {
     private var loginSegue: String  = "LoginSegue"
     var activeField: UITextField?
     
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +26,6 @@ class LoginViewController: UIViewController {
         loginScrollView.delegate = self
         registerForKeyboardNotifications()
         LevelSensorStore.shared.initializeFromFirebaseDatabase()
-        print(LevelSensorStore.shared.levelSensorCache.keys)
         requestTacButton.layer.cornerRadius =  requestTacButton.layer.frame.height/2
         requestTacButton.layer.borderColor = ViewConstants.lineColor
         requestTacButton.layer.borderWidth = ViewConstants.lineWidth
@@ -36,10 +33,8 @@ class LoginViewController: UIViewController {
         verifyButton.layer.borderColor = ViewConstants.lineColor
         verifyButton.layer.borderWidth = ViewConstants.lineWidth
         
-        
         self.navigationController?.navigationBar.barTintColor = ViewConstants.themeColor
         
-       
         //self.navigationController?.navigationBar.shadowImage = UIColor.black.as1ptImage()
 
         for view in textFieldViews {
@@ -55,17 +50,13 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         
-        ///Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        // Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
         
         self.view.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
         
     }
-    
-
-    
-    
     
     
     // MARK: - Navigation
@@ -81,7 +72,7 @@ class LoginViewController: UIViewController {
 
 
     //MARK: - Interaction
-    @objc func keyboardWasShown(notification: NSNotification){
+    @objc func keyboardWillBeShown(notification: NSNotification){
         
         loginScrollView.isScrollEnabled = true
         
@@ -159,7 +150,7 @@ extension LoginViewController: UIScrollViewDelegate {
     
     func registerForKeyboardNotifications() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWasShown(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillBeShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -187,3 +178,4 @@ extension UIColor {
         return image
     }
 }
+

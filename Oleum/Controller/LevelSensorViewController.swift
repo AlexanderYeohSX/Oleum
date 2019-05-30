@@ -123,7 +123,7 @@ class LevelSensorViewController: UIViewController {
             if levelSensorsAtLocation[cellTag].isFull {
                 
                 levelSensorsAtLocation[cellTag].isFull = false
-                levelSensorsAtLocation[cellTag].lastCollected.append(Date())
+                levelSensorsAtLocation[cellTag].lastCollected.insert(Date(), at: 0)
                 performSegue(withIdentifier: historySegue, sender: cellTag)
                 LevelSensorStore.shared.updateLevelSensor(at: locationSelected, for: levelSensorsAtLocation[cellTag])
                 reloadData()

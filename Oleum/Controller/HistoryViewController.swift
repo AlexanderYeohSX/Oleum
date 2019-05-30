@@ -102,7 +102,5 @@ extension HistoryViewController: UITableViewDelegate,UITableViewDataSource{
         return cell
         
     }
-    
-    
-    
+
 }

@@ -8,14 +8,17 @@
 
 import Foundation
 
+// Structure for LevelSensor
+// 
+// batteryLevel, isConnected & isFull will be updated by sensor
+// lastCollected,
+
 struct LevelSensor {
     
-    var tag: String
     var batteryLevel: String
     var collectedBy: String
     var isConnected: Bool
     var isFull: Bool
     var lastCollected: [Date]
-
-    
+    var tag: String
 }

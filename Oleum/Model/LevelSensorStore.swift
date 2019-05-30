@@ -48,12 +48,16 @@ class LevelSensorStore {
                                     if let lastCollected = sensorDataFromDb["lastCollected"] as? [Double] {
                                         for dateUnix in lastCollected {
                                             lastCollectedDate.append(Date(timeIntervalSince1970: dateUnix))
+                                            
+                                            
                                         }
                                     }
                                     
                                     print(lastCollectedDate)
                                     
-                                    let newLevelSensor = LevelSensor(tag: levelSensorString, batteryLevel: batteryLevelString, collectedBy: collectedBy, isConnected: isConnected, isFull: isFull, lastCollected: lastCollectedDate)
+                                    
+                                    let newLevelSensor = LevelSensor(batteryLevel: batteryLevelString, collectedBy: collectedBy, isConnected: isConnected, isFull: isFull, lastCollected: lastCollectedDate, tag: levelSensorString)
+                                    
                                     
                                     if self.levelSensorCache[locationString] != nil {
                                         
