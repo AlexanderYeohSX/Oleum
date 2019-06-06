@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60107802224FA23000F3FE87 /* TabBarViewController.swift */; };
 		60107805224FA9F300F3FE87 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60107804224FA9F300F3FE87 /* HistoryViewController.swift */; };
 		6022E6C2228B94C70077763F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022E6C1228B94C70077763F /* MapViewController.swift */; };
-		6023697E22948EF9000A714E /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6023697D22948EF9000A714E /* BridgingHeader.m */; };
 		602AD7052244BB8600E37D76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */; };
 		605FEFCD223804310050034E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 605FEFCC223804310050034E /* GoogleService-Info.plist */; };
 		605FEFD222380AE20050034E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605FEFD122380AE20050034E /* Constants.swift */; };
@@ -35,9 +34,6 @@
 		60107802224FA23000F3FE87 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		60107804224FA9F300F3FE87 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		6022E6C1228B94C70077763F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		6023697B22948EC0000A714E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		6023697C22948EF8000A714E /* Oleum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Oleum-Bridging-Header.h"; sourceTree = "<group>"; };
-		6023697D22948EF9000A714E /* BridgingHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
 		602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		605FEFCC223804310050034E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		605FEFD122380AE20050034E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -105,10 +101,7 @@
 				6073C669222D282F00EEC4B2 /* Info.plist */,
 				602AD7042244BB8600E37D76 /* LaunchScreen.storyboard */,
 				605FEFCC223804310050034E /* GoogleService-Info.plist */,
-				6023697B22948EC0000A714E /* Header.h */,
-				6023697D22948EF9000A714E /* BridgingHeader.m */,
 				605FEFD122380AE20050034E /* Constants.swift */,
-				6023697C22948EF8000A714E /* Oleum-Bridging-Header.h */,
 			);
 			path = Oleum;
 			sourceTree = "<group>";
@@ -254,38 +247,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
-				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Oleum/Pods-Oleum-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FB972F085510CFB1BB6B7697 /* [CP] Copy Pods Resources */ = {
@@ -294,22 +264,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Oleum/Pods-Oleum-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Oleum/Pods-Oleum-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Oleum/Pods-Oleum-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oleum/Pods-Oleum-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Oleum/Pods-Oleum-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -320,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6002F86B2282CA9C00BAA82E /* RoutingViewController.swift in Sources */,
-				6023697E22948EF9000A714E /* BridgingHeader.m in Sources */,
 				60107803224FA23000F3FE87 /* TabBarViewController.swift in Sources */,
 				60D70892223643450057F010 /* LoginViewController.swift in Sources */,
 				6073C660222D282E00EEC4B2 /* LevelSensorViewController.swift in Sources */,

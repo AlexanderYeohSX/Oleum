@@ -14,5 +14,6 @@ target 'Oleum' do
   pod 'GoogleMaps'
   pod 'GooglePlaces' 
   pod 'MapboxDirections.swift', '~> 0.27'
+  pod 'GSTouchesShowingWindow-Swift', :git => 'https://github.com/Cyberbeni/GSTouchesShowingWindow-Swift.git', :configurations => ['Debug']
 
 end

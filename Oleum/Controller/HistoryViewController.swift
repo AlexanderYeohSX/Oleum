@@ -2,8 +2,8 @@
 //  HistoryViewController.swift
 //  Oleum
 //
-//  Created by Kean Wei Wong on 30/03/2019.
-//  Copyright © 2019 Kean Wei Wong. All rights reserved.
+//  Created by Alexander Yeoh Shi Xian on 30/03/2019.
+//  Copyright © 2019 Alexander Yeoh Shi Xian. All rights reserved.
 //
 
 import UIKit
@@ -83,8 +83,7 @@ extension HistoryViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy hh:mm a")
+        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
         

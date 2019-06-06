@@ -2,8 +2,8 @@
 //  SettingsViewController.swift
 //  Oleum
 //
-//  Created by Kean Wei Wong on 16/04/2019.
-//  Copyright © 2019 Kean Wei Wong. All rights reserved.
+//  Created by Alexander Yeoh Shi Xian on 16/04/2019.
+//  Copyright © 2019 Alexander Yeoh Shi Xian. All rights reserved.
 //
 
 import UIKit
@@ -51,24 +51,10 @@ class SettingsViewController: UIViewController {
         view.endEditing(true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBOutlet weak var profileView: UIView!
-    
     @IBOutlet var textFieldViews: [UIView]!
-    
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet weak var checkOutButton: UIButton!
-    
     @IBOutlet var settingsButtons: [UIBarButtonItem]!
-    
     @IBOutlet var settingsTextFields: [UITextField]!
-    
 }

@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  OilOil
+//  Oleum
 //
-//  Created by Kean Wei Wong on 04/03/2019.
-//  Copyright © 2019 Kean Wei Wong. All rights reserved.
+//  Created by Alexander Yeoh Shi Xian on 04/03/2019.
+//  Copyright © 2019 Alexander Yeoh Shi Xian. All rights reserved.
 //
 
 import UIKit
@@ -38,9 +38,15 @@ class LevelSensorViewController: UIViewController {
         
         let backgroundView = cell.contentView.subviews[0]
         let levelLabel = cell.contentView.subviews[1] as! UILabel
-        let collectedButton = backgroundView.subviews.last! as! UIButton
-        let wifiImageView = backgroundView.subviews[1] as! UIImageView
         let batteryImageView = backgroundView.subviews[0] as! UIImageView
+        let wifiImageView = backgroundView.subviews[1] as! UIImageView
+        let dateLabel = backgroundView.subviews[2] as! UILabel
+        let collectedButton = backgroundView.subviews.last! as! UIButton
+        
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         
         if levelSensor.isConnected {
             wifiImageView.image = UIImage(named: "Wifi")
@@ -58,8 +64,6 @@ class LevelSensorViewController: UIViewController {
             collectedButton.setImage(#imageLiteral(resourceName: "Cross"), for: .normal)
         }
         
-        
-        
         switch levelSensor.batteryLevel {
         case BatteryLevelConstants.full:
             batteryImageView.image = UIImage(named:"Battery_Green")
@@ -75,6 +79,9 @@ class LevelSensorViewController: UIViewController {
             break
         }
         
+        if let dateToDisplay = levelSensor.lastCollected.first {
+            dateLabel.text = "Last Cleared on \(dateFormatter.string(from: dateToDisplay))"
+        }
         
         backgroundView.layer.cornerRadius = ViewConstants.cornerRadiusForTableCell
         backgroundView.layer.borderWidth = ViewConstants.lineWidth
@@ -98,15 +105,15 @@ class LevelSensorViewController: UIViewController {
         
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.cellTapped(sender:))))
         
-        backgroundView.tag = tagForCell
+        backgroundView.tag = self.tagForCell
     
         
-        tagForCell += 1
+         self.tagForCell += 1
     }
     
     func reloadData() {
         
-        tagForCell = 0
+         self.tagForCell = 0
         
         if let levelSensorsFromStorage = LevelSensorStore.shared.getLevelSensors(at: locationSelected) {
             levelSensorsAtLocation = levelSensorsFromStorage
@@ -155,7 +162,7 @@ extension LevelSensorViewController: UITableViewDataSource, UITableViewDelegate 
             updateTableViewCell(forCell: cell, withLevelSensor: levelSensorAtCell)
         
         if indexPath.row == barrelTableView.numberOfRows(inSection: 0){
-            tagForCell = 0
+             self.tagForCell = 0
         }
         
         return cell

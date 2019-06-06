@@ -2,8 +2,8 @@
 //  LoginViewController.swift
 //  Oleum
 //
-//  Created by Kean Wei Wong on 11/03/2019.
-//  Copyright © 2019 Kean Wei Wong. All rights reserved.
+//  Created by Alexander Yeoh Shi Xian on 11/03/2019.
+//  Copyright © 2019 Alexander Yeoh Shi Xian. All rights reserved.
 //
 
 import UIKit
@@ -86,7 +86,12 @@ class LoginViewController: UIViewController {
             self.loginScrollView.frame = newScrollViewFrame
             
             if let _activeField = self.activeField {
-                self.loginScrollView.scrollRectToVisible(_activeField.frame, animated: true)
+                
+                
+                
+                var frameToDisplay = CGRect(x: _activeField.frame.minX, y: _activeField.frame.minY, width: _activeField.frame.width, height: _activeField.frame.height + 50)
+              
+                self.loginScrollView.scrollRectToVisible(frameToDisplay, animated: true)
             }
             
         }
@@ -133,7 +138,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var textFieldViews: [UIView]!
     
     @IBOutlet weak var navBar: UINavigationItem!
-    
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.

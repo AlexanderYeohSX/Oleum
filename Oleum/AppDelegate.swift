@@ -1,29 +1,42 @@
 //
 //  AppDelegate.swift
-//  OilOil
+//  Oleum
 //
-//  Created by Kean Wei Wong on 04/03/2019.
-//  Copyright © 2019 Kean Wei Wong. All rights reserved.
+//  Created by Alexander Yeoh Shi Xian on 04/03/2019.
+//  Copyright © 2019 Alexander Yeoh Shi Xian. All rights reserved.
 //
 
 import UIKit
 import Firebase
 import GoogleMaps
 import GooglePlaces
+import GSTouchesShowingWindow_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    //Implement a tap indicator for demonstration.
+    #if DEBUG
+    var customWindow: GSTouchesShowingWindow?
+    var window: UIWindow? {
+        get {
+            customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
+            return customWindow
+        }
+        set { }
+    }
+    #else
     var window: UIWindow?
-
+    #endif
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        FirebaseApp.configure()
-        UINavigationBar.appearance().shadowImage = UIColor.black.as1ptImage()
-        GMSServices.provideAPIKey("AIzaSyC1jQIU073y3HUtw6vui3sWHdECz8lrHv0")
-        GMSPlacesClient.provideAPIKey("AIzaSyC1jQIU073y3HUtw6vui3sWHdECz8lrHv0")
+        FirebaseApp.configure()     //Initialize Firebase
+        UINavigationBar.appearance().shadowImage = UIColor.black.as1ptImage()   //Drawing a black line below the navigation bar
+        GMSServices.provideAPIKey("AIzaSyC1jQIU073y3HUtw6vui3sWHdECz8lrHv0")    //APIKey required by Google Maps
+        GMSPlacesClient.provideAPIKey("AIzaSyC1jQIU073y3HUtw6vui3sWHdECz8lrHv0")//APIKey required by Google Places
         return true
     }
 

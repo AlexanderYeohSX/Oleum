@@ -2,8 +2,8 @@
 //  MapViewController.swift
 //  Oleum
 //
-//  Created by Kean Wei Wong on 15/05/2019.
-//  Copyright © 2019 Kean Wei Wong. All rights reserved.
+//  Created by Alexander Yeoh Shi Xian on 15/05/2019.
+//  Copyright © 2019 Alexander Yeoh Shi Xian. All rights reserved.
 //
 
 import UIKit
@@ -12,16 +12,15 @@ import MapboxDirections
 
 class MapViewController: UIViewController {
     
-    
-    
     let initialLocation = MapConstants.spadesBurger
 //  let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.spadesBurger,MapConstants.limFriedChicken,MapConstants.outdark,MapConstants.qBistroNasiKandar,MapConstants.kentuckyFriedChicken,MapConstants.nasiKandarPelita]
     
     //Route for selected sensors
-   //let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.limFriedChicken,MapConstants.oregi,MapConstants.jibril,MapConstants.outdark,MapConstants.naughtyNuris,MapConstants.nasiKandarPelita,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.qBistroNasiKandar]
+    let allRestaurants: [MapInfo] = [MapConstants.burgertory,MapConstants.silvaTandooriCorner,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.jibril,MapConstants.naughtyNuris,MapConstants.nasiKandarPelita,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.brewHouse]
+    
     
     //  Route for All Location
-     let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.carlsJr,MapConstants.silvaTandooriCorner,MapConstants.fortySixByProjectGibraltar,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.limFriedChicken,MapConstants.oregi,MapConstants.jibril,MapConstants.canaiCafe,MapConstants.outdark,MapConstants.naughtyNuris,MapConstants.brewHouse,MapConstants.nasiKandarPelita,MapConstants.rajsBananaLeaf,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.qBistroNasiKandar]
+   //  let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.carlsJr,MapConstants.silvaTandooriCorner,MapConstants.fortySixByProjectGibraltar,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.limFriedChicken,MapConstants.oregi,MapConstants.jibril,MapConstants.canaiCafe,MapConstants.outdark,MapConstants.naughtyNuris,MapConstants.brewHouse,MapConstants.nasiKandarPelita,MapConstants.rajsBananaLeaf,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.qBistroNasiKandar]
     
     var distance: Double = 0 {
         didSet {
@@ -31,7 +30,7 @@ class MapViewController: UIViewController {
     var routeMarkers: [GMSMarker] = []
     let directions = Directions(accessToken: MapConstants.mapBoxApi)
     var waypoints: [Waypoint] = []
-    var options: RouteOptions = RouteOptions(waypoints: [Waypoint(coordinate: MapConstants.spadesBurger.coord)], profileIdentifier: .automobileAvoidingTraffic)
+    var options: RouteOptions = RouteOptions(waypoints: [Waypoint(coordinate: MapConstants.spadesBurger.coord)], profileIdentifier: .automobile)
     let path = GMSMutablePath()
     let downloadGroup = DispatchGroup()
     
