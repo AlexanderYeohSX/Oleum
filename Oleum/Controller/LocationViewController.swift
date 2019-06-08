@@ -13,6 +13,7 @@ class LocationViewController: UIViewController {
     let levelSensorSegue = ViewConstants.levelSensorSegue
     var locationToDisplay: [String] = [] {
         didSet{
+            //Reloads the table view everytime the location updates.
             locationTableView.reloadData()
         }
     }
@@ -21,34 +22,33 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        //Configuring the table view
         locationTableView.dataSource = self
         locationTableView.delegate = self
         locationTableView.separatorColor = ViewConstants.lineUIColor
     
+        //UI adjustments to improve user experience
         locationView.layer.borderWidth = ViewConstants.lineWidth
         locationView.layer.cornerRadius = ViewConstants.cornerRadiusForViews
         
         searchView.layer.borderWidth = ViewConstants.lineWidth
         searchView.layer.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         
+        //Configuring the search bar
         searchBar.delegate = self
-        
-        locationToDisplay = LevelSensorStore.shared.getAllLocation()
-        
         if let searchField = searchBar.value(forKey: "searchField") as? UITextField {
             
             searchField.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
             searchField.layer.cornerRadius = 0
             searchField.attributedPlaceholder = NSAttributedString(string: "Search...", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 14.0)!])
-         
+            
         }
         
+        locationToDisplay = LevelSensorStore.shared.getAllLocation()    //Configuring the necessary location to display
+        
+        //Dismiss keyboard when the user taps a non-text field part of the page.
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        
-        ///Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
-        
-        self.view.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
     }
     
@@ -58,7 +58,6 @@ class LocationViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == levelSensorSegue {
-            
             let locationCellSelected = sender as! UITableViewCell
             let lsvc = segue.destination as! LevelSensorViewController
             lsvc.locationSelected = locationCellSelected.textLabel?.text ?? ModelConstants.noLocation
@@ -76,6 +75,7 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
 }
 
+//Configuration of the table view
 extension LocationViewController: UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return locationToDisplay.count
@@ -99,7 +99,6 @@ extension LocationViewController: UITableViewDataSource,UITableViewDelegate,UISe
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        
         locationToDisplay = LevelSensorStore.shared.getAllLocation()
         if searchText == "" {
             return
@@ -107,7 +106,6 @@ extension LocationViewController: UITableViewDataSource,UITableViewDelegate,UISe
         locationToDisplay = locationToDisplay.filter { locationString -> Bool in
             return locationString.lowercased().contains(searchText.lowercased())
         }
-        
         
     }
 }

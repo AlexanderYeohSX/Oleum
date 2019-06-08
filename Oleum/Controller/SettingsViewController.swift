@@ -8,12 +8,15 @@
 
 import UIKit
 
+//Class for the settings tab
 class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+         //UI adjustments to improve user experience
         profileView.layer.cornerRadius = ViewConstants.cornerRadiusForLabel
         profileView.layer.borderColor = ViewConstants.lineColor
         profileView.layer.borderWidth = ViewConstants.lineWidth
@@ -36,12 +39,9 @@ class SettingsViewController: UIViewController {
             textField.borderStyle = .none
         }
         
+        //Dismiss keyboard when the user taps a non-text field part of the page.
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        
-        ///Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
-        
-        self.view.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
     
     }

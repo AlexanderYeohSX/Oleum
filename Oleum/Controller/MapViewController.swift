@@ -11,22 +11,16 @@ import GoogleMaps
 import MapboxDirections
 
 class MapViewController: UIViewController {
-    
-    let initialLocation = MapConstants.spadesBurger
-//  let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.spadesBurger,MapConstants.limFriedChicken,MapConstants.outdark,MapConstants.qBistroNasiKandar,MapConstants.kentuckyFriedChicken,MapConstants.nasiKandarPelita]
-    
-    //Route for selected sensors
-    let allRestaurants: [MapInfo] = [MapConstants.burgertory,MapConstants.silvaTandooriCorner,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.jibril,MapConstants.naughtyNuris,MapConstants.nasiKandarPelita,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.brewHouse]
-    
-    
-    //  Route for All Location
-   //  let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.carlsJr,MapConstants.silvaTandooriCorner,MapConstants.fortySixByProjectGibraltar,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.limFriedChicken,MapConstants.oregi,MapConstants.jibril,MapConstants.canaiCafe,MapConstants.outdark,MapConstants.naughtyNuris,MapConstants.brewHouse,MapConstants.nasiKandarPelita,MapConstants.rajsBananaLeaf,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.qBistroNasiKandar]
+
+    // Route for All Location
+    let allRestaurants: [MapInfo] = [MapConstants.mcDonalds,MapConstants.burgertory,MapConstants.carlsJr,MapConstants.silvaTandooriCorner,MapConstants.fortySixByProjectGibraltar,MapConstants.spadesBurger,MapConstants.nommsFriedChicken,MapConstants.littleBallyCafe,MapConstants.limFriedChicken,MapConstants.oregi,MapConstants.jibril,MapConstants.canaiCafe,MapConstants.outdark,MapConstants.naughtyNuris,MapConstants.brewHouse,MapConstants.nasiKandarPelita,MapConstants.rajsBananaLeaf,MapConstants.tryst,MapConstants.kentuckyFriedChicken,MapConstants.qBistroNasiKandar]
     
     var distance: Double = 0 {
         didSet {
-             print("Total Distance: \(distance)")
+             print("Total Distance: \(distance)") //Distance calculation variable
         }
     }
+    //Variables required for map customization
     var routeMarkers: [GMSMarker] = []
     let directions = Directions(accessToken: MapConstants.mapBoxApi)
     var waypoints: [Waypoint] = []
@@ -36,33 +30,33 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
+        //Zooms the map to SS15
         if !allRestaurants.isEmpty {
-        
             let camera = GMSCameraPosition.camera(withTarget: MapConstants.ss15Center, zoom: MapConstants.zoom)
             routingMapView.camera = camera
             routingMapView.isTrafficEnabled = true
-            //routingMapView.accessibilityElementsHidden = false
         }
         
+        //Adds a marker for each restaurant in the allRestaurants array, also set a waypoint for the distance calculation and route planning
         for restaurant in allRestaurants {
             let marker = GMSMarker()
+            let waypoint = Waypoint(coordinate: restaurant.coord)
+            
             marker.position = restaurant.coord
             marker.title = restaurant.name
             marker.snippet = "SS15"
             marker.map = routingMapView
             marker.icon = GMSMarker.markerImage(with: .lightGray)
-            routeMarkers.append(marker)
             
-            let waypoint = Waypoint(coordinate: restaurant.coord)
+            routeMarkers.append(marker)
             waypoints.append(waypoint)
-        
         }
-        
-        
+    
         routingMapView.layer.borderWidth = ViewConstants.lineWidth
         
-       
+        //Since Mapbox only allows a maximum of 3 points per navigation, the navigation must be done in a progressive manner, removing the first 2 points after navigation, and the last point is the start of the new navigation. This repeats itself until all the location had been navigated to.
         if waypoints.count >= 4 {
             
             drawDirection(for: [waypoints[0],waypoints[1],waypoints[2]])
@@ -75,41 +69,17 @@ class MapViewController: UIViewController {
         }
         
         self.repeatingWaypointCalls()
-
       
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-   
-    
-    func centerMapOnLocation(location: CLLocationCoordinate2D) {
-        
-        
-   
-    }
-    
-    @IBOutlet weak var routingMapView: GMSMapView!
     
     func drawDirection(for waypoints:[Waypoint]){
+        //a function to draw the route on the map
         
         options = RouteOptions(waypoints: waypoints, profileIdentifier: .automobile)
-        
         downloadGroup.enter()
-       
-      
         
         let task = directions.calculate(options) { (waypoints, routes, error) in
+            //callback function for mapbox navigation
             
             guard error == nil else {
                 print("Error calculating directions: \(error!)")
@@ -117,7 +87,6 @@ class MapViewController: UIViewController {
             }
             
             if let route = routes?.first, let leg = route.legs.first {
-                
                 
                 if let collectionCoord = route.coordinates {
                     
@@ -129,7 +98,7 @@ class MapViewController: UIViewController {
                     
                     print("Distance: \(route.distance)")
                     self.distance += Double(route.distance)
-                    
+        
                 }
             }
             
@@ -145,6 +114,7 @@ class MapViewController: UIViewController {
     }
     
     func repeatingWaypointCalls(){
+        //repeats the navigation until all waypoint had been completed.
         
         downloadGroup.notify(queue: .main) {
             
@@ -164,5 +134,7 @@ class MapViewController: UIViewController {
         }
         
     }
+    
+    @IBOutlet weak var routingMapView: GMSMapView!
     
 }
